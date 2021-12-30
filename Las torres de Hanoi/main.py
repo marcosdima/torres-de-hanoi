@@ -33,16 +33,29 @@ def menu():
         print()
         print('3- SALIR')
         print()
-        eleccion = int(input('Seleccione una de las opciones... '))
+        eleccion = input('Seleccione una de las opciones [1/2/3]... ')
+        print()
 
-        if eleccion == 1:
-            reglas()
-            print()
-            input('Press ENTER to continue... ')
-        elif eleccion == 2:
-            pass
-        elif eleccion == 3:
-            SALIR = True
+        if eleccion.isdigit():
+
+            eleccion = int(eleccion)
+
+            if eleccion == 1: # Reglas
+                reglas()
+                print()
+                input('Press ENTER to continue... ')
+
+            elif eleccion == 2: # Juego (PENDIENTE)
+                pass
+
+            elif eleccion == 3: # Salida
+                SALIR = True
+
+            else:
+                print('Recuerde que tiene que seleccionar una de las opciones disponibles 1, 2 o 3. Por favor vuelva a intentarlo.')
+                print()
+                input('Press ENTER to continue... ')
+
         else:
             print('La opción seleccionada no existe, por favor vuelva a intentarlo.')
             print()
