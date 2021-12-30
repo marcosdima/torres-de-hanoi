@@ -36,14 +36,17 @@ def menu():
         eleccion = int(input('Seleccione una de las opciones... '))
 
         if eleccion == 1:
-            pass
+            reglas()
+            print()
+            input('Press ENTER to continue... ')
         elif eleccion == 2:
             pass
         elif eleccion == 3:
             SALIR = True
         else:
             print('La opción seleccionada no existe, por favor vuelva a intentarlo.')
-            print('Press ENTER to continue... ')
+            print()
+            input('Press ENTER to continue... ')
 
 
 menu()

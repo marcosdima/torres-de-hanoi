@@ -131,7 +131,15 @@ def detectar_espacio_y_tamaño(vector_posiciones, fila, palo, disco):
 
     return espacio, tamaño
 
+def reglas():
 
+    os.system('clear')
+
+    print('Reglas'.center(70))
+    print()
+    reglas = ['El objetivo del juego es mover la torre de un pilar a otro.', 'Los discos solo se mueven uno a la vez', 'Un disco no se puede poner sobre otro más chico.']
+    for i in reglas:
+        print('- ', i)
 ### Pruebas ###
 
 nro_discos = 3
@@ -143,3 +151,5 @@ disc_2 = '23'
 vector_posiciones = [disc_0, disc_1, disc_2] # 'xy' -> x = palos ; y = Discos
 
 #print(mover_discos(2, vector_posiciones, 1, nro_discos, vector_posiciones[0]))
+
+reglas()
