@@ -114,7 +114,7 @@ def mover_discos(disco, vector_posiciones, palo, nro_discos, posicion_actual):
 
     return disco_a
 
-def detectar_espacio_y_tamaño(vector_posiciones, fila, palo, disco):
+def detectar_espacio_y_tamaño(vector_posiciones, fila, palo, disco): # Dandole los parametros indicados, detecta si hay espacio en el pilar/torre y si estás poniendo un disco grande sobre uno chico.
 
     espacio = True
     tamaño = False
@@ -137,19 +137,49 @@ def reglas():
 
     print('Reglas'.center(70))
     print()
-    reglas = ['El objetivo del juego es mover la torre de un pilar a otro.', 'Los discos solo se mueven uno a la vez', 'Un disco no se puede poner sobre otro más chico.']
+    reglas = ['El objetivo del juego es mover la torre de un pilar a otro.', 'Los discos solo se mueven uno a la vez', 'Un disco no se puede poner sobre otro más chico.', 'Para indicar el movimiento deseado, ingrese una pareja de numeros. Donde el primero sea del disco a mover y el segundo de la torre destino.', 'Para referirse a los discos deben orientarse por el tamaño, el más chico es el disco "0" (cero) y a medida que se aumenta el tamaño, sube en 1 dicha etiqueta.', 'Con los palos es similar, el máz a la izquierda es el palo "0" y a medida que se mueve a la derecha se aumenta en uno.']
     for i in reglas:
         print('- ', i)
+
+def detectar_arriba(disco, vector_posiciones): # Devuelve True si el disco indicado tiene un disco arriba
+
+    posicion = vector_posiciones[disco]
+
+    fila = str(int(posicion[1]) - 1)
+    columna = posicion[0]
+
+    posicion_arriba = columna + fila
+
+    arriba = False
+
+    if disco == 0:
+        pass
+
+    else:
+
+        for i in vector_posiciones:
+            if i == posicion_arriba:
+                arriba = True
+
+    return arriba
+
+
+
+
+
+
 ### Pruebas ###
 
 nro_discos = 3
 
 disc_0 = '00'
-disc_1 = '12'
-disc_2 = '23'
+disc_1 = '01'
+disc_2 = '02'
 
 vector_posiciones = [disc_0, disc_1, disc_2] # 'xy' -> x = palos ; y = Discos
 
 #print(mover_discos(2, vector_posiciones, 1, nro_discos, vector_posiciones[0]))
+
+print(detectar_arriba(1, vector_posiciones))
 
 #reglas()
