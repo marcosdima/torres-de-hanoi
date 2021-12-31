@@ -61,7 +61,7 @@ def menu():
 
                     if detectar_arriba(disco, vector_posiciones):
 
-                        os.system('clear')
+                        print()
                         print('El disco seleccionado tiene uno por encima, por favor mueva el que esta encima primero.')
                         input('Press ENTER to continue... ')
 

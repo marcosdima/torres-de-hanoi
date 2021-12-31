@@ -99,6 +99,7 @@ def mover_discos(disco, vector_posiciones, palo, nro_discos, posicion_actual):
         if not espacio and tamaño:
 
             SALIR = True
+            print()
             print('No se puede poner un disco grande sobre uno chico. Vuelva a intentarlo.')
             input('Press ENTER to continue... ')
             disco_a = posicion_actual
