@@ -8,8 +8,10 @@ def menu(nro_discos, nro_palos, nivel):
     while not SALIR:
 
     ### Variables Iniciales ###
-        largo_palos = 17 + ((nro_discos + 1) * 3)
-        espacio = 17 + (nro_palos * 2)
+
+        largo_palos = nro_discos * (nro_discos - (nro_discos // 2) + 1)# LA verdad no se que pasa, pero si no es así no funca. REVISAR DESPUÉS.
+
+        espacio = 17 + (nro_palos * 4)
 
     ### Posición de Discos ###
 
@@ -26,7 +28,7 @@ def menu(nro_discos, nro_palos, nivel):
 
         print(f'Menu Principal: Nivel {nivel}'.center(70))
 
-        if nivel == 1:
+        if nivel == 1 and nro_discos == 1:
 
             print()
             print('1- Jugar')

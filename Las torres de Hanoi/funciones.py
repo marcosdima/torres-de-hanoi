@@ -23,9 +23,7 @@ def base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones, REGLAS)
 
             for f in range(nro_palos):
 
-                
-
-                if posiciones[contador,f] != (espacio * ' '):
+                if not posiciones[contador,f].startswith(' '):
 
                     vacio_pa_discos = ' ' * (espacio - (len(posiciones[contador,f]) // 2) - relleno_final)
                     relleno_final = (len(posiciones[contador,f]) // 2) # Esto es para que no se corra los discos de la derecha
@@ -34,6 +32,7 @@ def base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones, REGLAS)
                 else:
                     print(vacio + ' ', end = '')
             print()
+
 
             contador += 1
 
@@ -48,7 +47,7 @@ def base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones, REGLAS)
 
 def calcualo_de_colocacion(nro_discos, largo_palos): # Devuelve una lista con los lugares que les corresponderían a los discos.
 
-    division = largo_palos // (nro_discos)
+    division = largo_palos // nro_discos
 
     colocacion = []
 
@@ -64,22 +63,22 @@ def posicion_discos(nro_discos, nro_palos, espacio, vector_posiciones): # Deevue
 
     cuarto = (espacio // 4)
 
-    vacio = espacio * ' '
+    vacio = 34 * ' '
 
     posiciones = np.array([[vacio]*nro_palos]*nro_discos) # Discos = Filas, Palos = Columnas
 
-    contador = 2
+    contador = 1
 
     for i in vector_posiciones:
 
         x = int(i[1])
         y = int(i[0])
 
-        disco = ('-' * cuarto) + '-' * contador
+        disco = '-' * contador + i[1] + '-' * contador
 
         posiciones[x,y] = disco
 
-        contador += 2
+        contador += 1
 
 
     return posiciones
@@ -225,11 +224,11 @@ def ganar(movis):
 
 nro_discos = 3
 
-disc_0 = '00'
-disc_1 = '01'
-disc_2 = '02'
+vector_posiciones = []
 
-vector_posiciones = [disc_0, disc_1, disc_2] # 'xy' -> x = palos ; y = Discos
+for i in range(nro_discos):
+    posicion = '0' + str(i) # 'xy' -> x = palo ; y = Disco
+    vector_posiciones.append(posicion)
 
 #print(mover_discos(2, vector_posiciones, 1, nro_discos, vector_posiciones[0]))
 
@@ -238,3 +237,5 @@ vector_posiciones = [disc_0, disc_1, disc_2] # 'xy' -> x = palos ; y = Discos
 #reglas()
 
 #ganar(10)
+
+#rint(posicion_discos(nro_discos, 3, 20, vector_posiciones))
