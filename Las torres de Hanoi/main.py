@@ -26,15 +26,20 @@ def menu(nro_discos, nro_palos, nivel):
 
         print(f'Menu Principal: Nivel {nivel}'.center(70))
 
-        print()
-        print('1- Reglas')
-        print()
-        print('2- Jugar')
-        print()
-        print('3- SALIR')
-        print()
-        eleccion = input('Seleccione una de las opciones [1/2/3]... ')
-        print()
+        if nivel == 1:
+
+            print()
+            print('1- Reglas')
+            print()
+            print('2- Jugar')
+            print()
+            print('3- SALIR')
+            print()
+            eleccion = input('Seleccione una de las opciones [1/2/3]... ')
+            print()
+
+        else:
+            eleccion = '2'
 
         if eleccion.isdigit():
 
@@ -55,6 +60,8 @@ def menu(nro_discos, nro_palos, nivel):
 
                 while JUEGO:
 
+                    print()
+                    print(f'Nivel: {nivel}')
                     print()
                     print(f'Movimientos: {movis}')
                     print()
@@ -101,7 +108,13 @@ def menu(nro_discos, nro_palos, nivel):
             input('Press ENTER to continue... ')
 
 
-nro_discos = 3
+nro_discos = 1
 nro_palos = 3
+nivel = 1
 
-menu(nro_discos, nro_palos, 1)
+while True:
+
+    menu(nro_discos, nro_palos, nivel)
+
+    nivel += 1
+    nro_discos += 1
