@@ -164,9 +164,32 @@ def detectar_arriba(disco, vector_posiciones): # Devuelve True si el disco indic
 
     return arriba
 
+def listas_ganar(nro_discos, nro_palos): # Genera las posibles convinaciones ganadoras
 
+    final = []
 
+    for p in range(1, nro_palos+1):
 
+        posiciones = []
+
+        for d in range(nro_discos):
+            posicion = str(p) + str(d)
+            posiciones.append(posicion)
+
+        final.append(posiciones)
+
+    return final
+
+def ganar(movis):
+
+    ganaste = open('ganaste.txt', 'r')
+
+    linea = ganaste.readline().strip()
+
+    while linea != '':
+
+        print(linea)
+        linea = ganaste.readline().strip()
 
 
 ### Pruebas ###
@@ -184,3 +207,5 @@ vector_posiciones = [disc_0, disc_1, disc_2] # 'xy' -> x = palos ; y = Discos
 print(detectar_arriba(1, vector_posiciones))
 
 #reglas()
+
+ganar(10)
