@@ -52,7 +52,7 @@ def calcualo_de_colocacion(nro_discos, largo_palos): # Devuelve una lista con lo
 
     colocacion = []
 
-    for i in range(4, largo_palos-2, division):
+    for i in range(2, largo_palos-2, division):
 
         colocacion.append(i)
 

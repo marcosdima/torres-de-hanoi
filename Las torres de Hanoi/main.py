@@ -8,7 +8,7 @@ def menu(nro_discos, nro_palos, nivel):
     while not SALIR:
 
     ### Variables Iniciales ###
-        largo_palos = 17 + (nro_discos * 2)
+        largo_palos = 17 + ((nro_discos + 1) * 3)
         espacio = 17 + (nro_palos * 2)
 
     ### Posición de Discos ###
