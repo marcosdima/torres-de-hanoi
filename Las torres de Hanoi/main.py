@@ -107,9 +107,12 @@ def menu(nro_discos, nro_palos, nivel):
             input('Press ENTER to continue... ')
 
 
+
 nro_discos = 1
 nro_palos = 3
 nivel = 1
+
+
 
 while True:
 
