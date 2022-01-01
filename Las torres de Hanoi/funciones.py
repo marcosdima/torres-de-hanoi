@@ -182,6 +182,9 @@ def listas_ganar(nro_discos, nro_palos): # Genera las posibles convinaciones gan
 
 def ganar(movis):
 
+    for i in range(3):
+        print()
+
     ganaste = open('ganaste.txt', 'r')
 
     linea = ganaste.readline().strip()
@@ -190,6 +193,13 @@ def ganar(movis):
 
         print(linea)
         linea = ganaste.readline().strip()
+
+    for i in range(3):
+        print()
+
+    print(f'Te tomo {movis} movimientos! Bien Hecho!')
+    print()
+    input('Press ENTER to continue... ')
 
 
 ### Pruebas ###
@@ -204,8 +214,8 @@ vector_posiciones = [disc_0, disc_1, disc_2] # 'xy' -> x = palos ; y = Discos
 
 #print(mover_discos(2, vector_posiciones, 1, nro_discos, vector_posiciones[0]))
 
-print(detectar_arriba(1, vector_posiciones))
+#print(detectar_arriba(1, vector_posiciones))
 
 #reglas()
 
-ganar(10)
+#ganar(10)

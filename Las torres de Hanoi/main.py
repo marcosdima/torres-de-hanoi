@@ -51,11 +51,9 @@ def menu(nro_discos, nro_palos, nivel):
 
                 movis = 0 # Contador de movimientos
 
+                base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones)
+
                 while JUEGO:
-
-                    os.system('clear')
-
-                    base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones)
 
                     print()
                     print(f'Movimientos: {movis}')
@@ -79,7 +77,10 @@ def menu(nro_discos, nro_palos, nivel):
 
                         movis += 1
 
-                        for i in range(1, nro_palos+1):
+                        os.system('clear')
+                        base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones)
+
+                        for i in range(nro_palos-1):
                             if vector_posiciones == final[i]:
                                 JUEGO = False
                                 ganar(movis)
@@ -100,7 +101,7 @@ def menu(nro_discos, nro_palos, nivel):
             input('Press ENTER to continue... ')
 
 
-nro_discos = 4
+nro_discos = 3
 nro_palos = 3
 
 menu(nro_discos, nro_palos, 1)
