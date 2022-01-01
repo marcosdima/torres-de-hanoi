@@ -29,9 +29,9 @@ def menu(nro_discos, nro_palos, nivel):
         if nivel == 1:
 
             print()
-            print('1- Reglas')
+            print('1- Jugar')
             print()
-            print('2- Jugar')
+            print('2- Reglas')
             print()
             print('3- SALIR')
             print()
@@ -39,24 +39,24 @@ def menu(nro_discos, nro_palos, nivel):
             print()
 
         else:
-            eleccion = '2'
+            eleccion = '1'
 
         if eleccion.isdigit():
 
             eleccion = int(eleccion)
 
-            if eleccion == 1: # Reglas
+            if eleccion == 2: # Reglas
                 reglas()
                 print()
                 input('Press ENTER to continue... ')
 
-            elif eleccion == 2: # Juego
+            elif eleccion == 1: # Juego
 
                 JUEGO = True
 
                 movis = 0 # Contador de movimientos
 
-                base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones)
+                base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones, False)
 
                 while JUEGO:
 
@@ -84,8 +84,7 @@ def menu(nro_discos, nro_palos, nivel):
 
                         movis += 1
 
-                        os.system('clear')
-                        base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones)
+                        base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones, False)
 
                         for i in range(nro_palos-1):
                             if vector_posiciones == final[i]:

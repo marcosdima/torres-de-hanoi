@@ -1,8 +1,9 @@
 import random, time, os, numpy as np
 
-def base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones): # Dibuja el armatoste.
+def base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones, REGLAS): # Dibuja el armatoste. (REGLAS surge de la necesidad de que no se borre cuando esta en el tutorial)
 
-    os.system('clear')
+    if not REGLAS:
+        os.system('clear')
 
     for i in range(4):
         print()
@@ -141,6 +142,24 @@ def reglas():
     reglas = ['El objetivo del juego es mover la torre de un pilar a otro.', 'Los discos solo se mueven uno a la vez', 'Un disco no se puede poner sobre otro más chico.', 'Para indicar el movimiento deseado, ingrese una pareja de numeros. Donde el primero sea del disco a mover y el segundo de la torre destino.', 'Para referirse a los discos deben orientarse por el tamaño, el más chico es el disco "0" (cero) y a medida que se aumenta el tamaño, sube en 1 dicha etiqueta.', 'Con los palos es similar, el máz a la izquierda es el palo "0" y a medida que se mueve a la derecha se aumenta en uno.']
     for i in reglas:
         print('- ', i)
+
+    print()
+    input('Press ENTER to continue... ')
+    print()
+    print('Ejemplo:')
+    print()
+
+    base(20, 20, 3, 3, ['00','01','02'], True)
+
+    print()
+    print()
+    print('Ingrese el par de movimiento: 01 <-- El "0" indica que seleccionas el disco más pequeño y el "1" que queres moverlo al pilar 1°.')
+
+    base(20, 20, 3, 3, ['12','01','02'], True)
+
+    print()
+    print()
+    print('El disco "0" se movió al pilar "1".')
 
 def detectar_arriba(disco, vector_posiciones): # Devuelve True si el disco indicado tiene un disco arriba
 
