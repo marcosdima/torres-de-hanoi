@@ -9,7 +9,7 @@ def menu(nro_discos, nro_palos, nivel):
 
     ### Variables Iniciales ###
 
-        largo_palos = nro_discos * (nro_discos - (nro_discos // 2) + 1)# LA verdad no se que pasa, pero si no es así no funca. REVISAR DESPUÉS.
+        largo_palos = 3 + nro_discos + nro_discos * 3# LA verdad no se que pasa, pero si no es así no funca. REVISAR DESPUÉS.
 
         espacio = 17 + (nro_palos * 4)
 
@@ -110,7 +110,7 @@ def menu(nro_discos, nro_palos, nivel):
 
 
 
-nro_discos = 1
+nro_discos = 10
 nro_palos = 3
 nivel = 1
 

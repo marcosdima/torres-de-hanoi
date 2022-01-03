@@ -47,7 +47,7 @@ def base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones, REGLAS)
 
 def calcualo_de_colocacion(nro_discos, largo_palos): # Devuelve una lista con los lugares que les corresponderían a los discos.
 
-    division = largo_palos // nro_discos
+    division = (largo_palos // nro_discos)
 
     colocacion = []
 
