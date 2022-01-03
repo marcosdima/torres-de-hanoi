@@ -69,16 +69,20 @@ def posicion_discos(nro_discos, nro_palos, espacio, vector_posiciones): # Deevue
 
     contador = 1
 
+    nro_de_disco = 0
+
     for i in vector_posiciones:
 
         x = int(i[1])
         y = int(i[0])
 
-        disco = '-' * contador + i[1] + '-' * contador
+        disco = '-' * contador + str(nro_de_disco) + '-' * contador
 
         posiciones[x,y] = disco
 
         contador += 1
+
+        nro_de_disco += 1
 
 
     return posiciones
@@ -107,6 +111,11 @@ def mover_discos(disco, vector_posiciones, palo, nro_discos, posicion_actual):
         elif espacio:
 
             disco_a = str(palo_nuevo) + str(fila_nueva)
+            SALIR = True
+
+        elif posicion_actual == (str(palo) + str(fila_nueva)):
+
+            disco_a = posicion_actual
             SALIR = True
 
         else:

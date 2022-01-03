@@ -69,30 +69,43 @@ def menu(nro_discos, nro_palos, nivel):
                     print()
 
                     movimiento = input('Ingrese el par de movimiento: ')
-                    disco = int(movimiento[0])
-                    palo = int(movimiento[1])
 
-                    if detectar_arriba(disco, vector_posiciones):
-
-                        print()
-                        print('El disco seleccionado tiene uno por encima, por favor mueva el que esta encima primero.')
-                        input('Press ENTER to continue... ')
+                    if movimiento == '99':
+                        JUEGO = False
 
                     else:
 
-                        traslado = mover_discos(disco, vector_posiciones, palo, nro_discos, vector_posiciones[disco])
+                        disco = int(movimiento[0])
+                        palo = int(movimiento[1])
 
-                        vector_posiciones[disco] = traslado
+                        if palo > 2:
+                            palo = 2
 
-                        movis += 1
+                        if disco > (nro_discos - 1):
+                            disco = (nro_discos - 1)
 
-                        base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones, False)
 
-                        for i in range(nro_palos-1):
-                            if vector_posiciones == final[i]:
-                                JUEGO = False
-                                ganar(movis)
-                                SALIR = True
+                        if detectar_arriba(disco, vector_posiciones):
+
+                            print()
+                            print('El disco seleccionado tiene uno por encima, por favor mueva el que esta encima primero.')
+                            input('Press ENTER to continue... ')
+
+                        else:
+
+                            traslado = mover_discos(disco, vector_posiciones, palo, nro_discos, vector_posiciones[disco])
+
+                            vector_posiciones[disco] = traslado
+
+                            movis += 1
+
+                            base(largo_palos, espacio, nro_palos, nro_discos, vector_posiciones, False)
+
+                            for i in range(nro_palos-1):
+                                if vector_posiciones == final[i]:
+                                    JUEGO = False
+                                    ganar(movis)
+                                    SALIR = True
 
 
             elif eleccion == 3: # Salida
@@ -109,16 +122,25 @@ def menu(nro_discos, nro_palos, nivel):
             input('Press ENTER to continue... ')
 
 
-
-nro_discos = 10
-nro_palos = 3
-nivel = 1
+    return movis, movimiento
 
 
+ask = '00'
 
 while True:
 
-    menu(nro_discos, nro_palos, nivel)
+    nro_discos = 1
+    nro_palos = 3
+    nivel = 1
 
-    nivel += 1
-    nro_discos += 1
+    movimientos_totales = 0
+
+    os.system('clear')
+
+    while ask != '99':
+        juego, ask = menu(nro_discos, nro_palos, nivel)
+
+        movimientos_totales += juego
+
+        nivel += 1
+        nro_discos += 1
